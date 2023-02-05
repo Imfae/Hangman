@@ -1,5 +1,4 @@
 # Class for random word selection
-
 class GetWord
   def initialize
   end
@@ -12,4 +11,3 @@ class GetWord
     dict[rand(dict.length)]
   end
 end
-# GetWord.random_word

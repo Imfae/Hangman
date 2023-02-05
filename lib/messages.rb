@@ -1,6 +1,6 @@
 module Messages
   def starting_message
-    "\n Welcome to the game of Hangman!"
+    "\n Welcome to the game of Hangman!\n Press 'n' for new game and 's' for saved game."
   end
 
   def result_message(win, word)
@@ -11,5 +11,7 @@ module Messages
     end
   end
 
-  
+  def closing_message
+    "\n Would you like to play again? (y/n)"
+  end
 end

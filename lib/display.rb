@@ -2,7 +2,9 @@
 class Display
   attr_accessor :progress
 
-  def initialize;  end
+  def initialize
+    @progress = []
+  end
 
   def number_of_lives(lives)
     "\n #{'♥ ' * lives}\n"
