@@ -23,14 +23,16 @@ class UserInput
     puts "\n Please enter file name for your saved game:"
     filename = gets.chomp
     if File.exist?("saved_games/#{filename}.yml")
-      puts "\n A file with this name already exists. Do you wish to overwrite it? (y/n)"
-      puts "\n (If yes, your previously saved game will be lost.)"
+      puts "\n A file with this name already exists. Do you wish to overwrite it? (y/n)\n (If yes, your previously saved game will be lost.)"
       begin
         overwrite = gets.chomp.downcase
         raise "\n Please enter 'y' or 'n'" unless overwrite[0] == 'y' || overwrite[0] == 'n'
       rescue StandardError => e
         puts e
         retry
+      end
+      if overwrite[0] == 'n'
+        prompt_filename
       end
     end
     filename
@@ -42,5 +44,3 @@ class UserInput
     raise "\n You've entered this letter already. Try another one!" if @inputs_tried.include?(@input)
   end
 end
-# a = UserInput.new
-# a.prompt_input

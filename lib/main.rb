@@ -2,6 +2,7 @@ require_relative 'hangman'
 require_relative 'messages'
 include Messages
 
+# Class for consolidating new and saved games
 class Game
 
   def self.play
@@ -10,7 +11,7 @@ class Game
       game_type_input
       if @input == 's'
         saved_game_input
-        old_game = Hangman.from_yaml(@filename)
+        old_game = Hangman.load_game(@filename)
         old_game.assemble_game
       else
         new_game = Hangman.new(7)
@@ -34,7 +35,7 @@ class Game
     Dir.each_child('saved_games') do |file|
       puts " #{file.delete('.yml')}"
     end
-    puts "\n Enter name of your saved game to resume:"
+    puts "\n Enter the name of a saved game to resume:"
     @filename = gets.chomp
     unless File.exist?("saved_games/#{@filename}.yml")
       puts "\n No file with this name exists."

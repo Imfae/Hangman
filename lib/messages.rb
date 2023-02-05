@@ -1,3 +1,4 @@
+# Module for messages in-game
 module Messages
   def starting_message
     "\n Welcome to the game of Hangman!\n Press 'n' for new game and 's' for saved game."

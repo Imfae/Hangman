@@ -1,8 +1,5 @@
 # Class for random word selection
 class GetWord
-  def initialize
-  end
-
   def self.random_word
     dict = []
     File.readlines('dictionary.txt').each do |i|

@@ -35,7 +35,7 @@ class Hangman
     end
   end
 
-  def self.from_yaml(filename)
+  def self.load_game(filename)
     data = YAML.load_file("saved_games/#{filename}.yml")
     new(data[:lives], data[:word], data[:tried], data[:progress])
   end
