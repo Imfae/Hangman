@@ -10,7 +10,7 @@ class Game
       puts starting_message
       game_type_input
       if @input == 's'
-        saved_game_input
+        file_name_input
         old_game = Hangman.load_game(@filename)
         old_game.assemble_game
       else
@@ -30,10 +30,10 @@ class Game
     retry
   end
 
-  def self.saved_game_input
+  private_class_method def self.file_name_input
     puts "\n Saved games stored:"
     Dir.each_child('saved_games') do |file|
-      puts " #{file.delete('.yml')}"
+      puts " #{file.delete_suffix('.yml')}"
     end
     puts "\n Enter the name of a saved game to resume:"
     @filename = gets.chomp
