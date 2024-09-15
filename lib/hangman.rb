@@ -61,7 +61,7 @@ class Hangman
   end
 
   def reduce_lives
-    @lives -= 1 unless letter_guessed?
+    @lives -= 1 unless letter_guessed? || @input == 'save'
   end
 
   def word_guessed?
